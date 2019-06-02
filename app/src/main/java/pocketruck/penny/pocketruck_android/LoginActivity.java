@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import pocketruck.penny.pocketruck_android.R;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import pocketruck.penny.pocketruck_android.R;
 
 
 public class ThirdTabFragment extends Fragment {

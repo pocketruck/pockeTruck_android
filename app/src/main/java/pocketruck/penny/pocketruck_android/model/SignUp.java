@@ -5,7 +5,6 @@ public class SignUp {
     private String password;
 
     public  SignUp(){
-
     }
 
     public SignUp(String username, String password) {
