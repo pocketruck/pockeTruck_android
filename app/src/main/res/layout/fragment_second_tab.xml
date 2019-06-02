@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".tab1">
+    tools:context="pocketruck.penny.pocketruck_android.SecondTabFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:gravity="center"
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="탭1" />
+        class="com.google.android.gms.maps.MapFragment"/>
 
-</FrameLayout>
+</RelativeLayout>

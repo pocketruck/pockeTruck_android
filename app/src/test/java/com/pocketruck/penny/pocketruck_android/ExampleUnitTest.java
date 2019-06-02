@@ -1,4 +1,4 @@
-package com.pocketruck.pockettrck;
+package com.pocketruck.penny.pocketruck_android;
 
 import org.junit.Test;
 

@@ -1,10 +1,12 @@
-package com.pocketruck.pockettrck;
+package pocketruck.penny.pocketruck_android;
 
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import pocketruck.penny.pocketruck_android.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -65,25 +67,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (fragment_no){
             case 1:
-                tab1 fragment1 = new tab1();
+                FirstTabFragment fragment1 = new FirstTabFragment();
                 transaction.replace(R.id.fragment_container, fragment1);
                 transaction.commit();
                 break;
 
             case 2:
-                tab2 fragment2 = new tab2();
+                SecondTabFragment fragment2 = new SecondTabFragment();
                 transaction.replace(R.id.fragment_container, fragment2);
                 transaction.commit();
                 break;
 
             case 3:
-                tab3 fragment3 = new tab3();
+                ThirdTabFragment fragment3 = new ThirdTabFragment();
                 transaction.replace(R.id.fragment_container, fragment3);
                 transaction.commit();
                 break;
 
             case 4:
-                tab4 fragment4 = new tab4();
+                FourthTabFragment fragment4 = new FourthTabFragment();
                 transaction.replace(R.id.fragment_container, fragment4);
                 transaction.commit();
                 break;

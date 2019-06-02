@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pocketruck.pockettrck">
+    package="pocketruck.penny.pocketruck_android">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
 
     <application
@@ -10,15 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBbvZgjNpBh6LqRScqZOf54OxNuN6AjjDc" />
 
-        <activity android:name="com.pocketruck.pockettrck.SignUp"></activity>
-        <activity android:name="com.pocketruck.pockettrck.Login" />
+        <activity android:name="pocketruck.penny.pocketruck_android.SignUpActivity"></activity>
+        <activity android:name="pocketruck.penny.pocketruck_android.LoginActivity" />
         <activity
-            android:name="com.pocketruck.pockettrck.Splash"
+            android:name="pocketruck.penny.pocketruck_android.Splash"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -27,7 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.pocketruck.pockettrck.MainActivity" />
+        <activity android:name="pocketruck.penny.pocketruck_android.MainActivity" />
     </application>
 
 </manifest>
