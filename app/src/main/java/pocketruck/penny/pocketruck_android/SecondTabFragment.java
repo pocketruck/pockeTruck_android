@@ -1,6 +1,4 @@
-package com.pocketruck.pockettrck;
-
-
+package pocketruck.penny.pocketruck_android;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,17 +16,18 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import pocketruck.penny.pocketruck_android.R;
 
 
-public class tab2 extends Fragment implements OnMapReadyCallback,
+public class SecondTabFragment extends Fragment implements OnMapReadyCallback,
         GoogleMap.OnMarkerClickListener {
 
-    final LatLng HOME = new LatLng(37.750746, 127.072891);
+    final LatLng HOME = new LatLng(37.752125, 127.070990);
     private MapView mapView = null;
     private GoogleMap gMap;
 
 
-    public tab2() {
+    public SecondTabFragment() {
         // Required empty public constructor
     }
 
@@ -42,7 +41,7 @@ public class tab2 extends Fragment implements OnMapReadyCallback,
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View layout = inflater.inflate(R.layout.fragment_tab2,container,false);
+        View layout = inflater.inflate(R.layout.fragment_second_tab,container,false);
         mapView = (MapView)layout.findViewById(R.id.map);
         mapView.getMapAsync(this);
 
@@ -100,13 +99,13 @@ public class tab2 extends Fragment implements OnMapReadyCallback,
         }
     }
 
-     //위치를 로그에 나타내기 위해 밖으로 뺐다,,,
+    //위치를 로그에 나타내기 위해 밖으로 뺐다,,,
     @Override
     public void onMapReady(GoogleMap googleMap) {
         MarkerOptions mo = new MarkerOptions();
         mo.position(HOME);
-        mo.title("우리집");
-        mo.snippet("경빈이 집");
+        mo.title("홈플러스");
+        mo.snippet("의정부 홈플러스");
         //mo.draggable(true);
 
         googleMap.addMarker(mo);
