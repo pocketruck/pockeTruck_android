@@ -11,5 +11,6 @@ public interface RetrofitAPI {
 
     @POST("accounts/signUp/")
     Call<SignUp> postSignUp(@Body SignUp signUp);
+
 }
 

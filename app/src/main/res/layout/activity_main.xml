@@ -47,5 +47,4 @@
             android:layout_weight="1"
             android:text="tab4" />
     </LinearLayout>
-
 </RelativeLayout>

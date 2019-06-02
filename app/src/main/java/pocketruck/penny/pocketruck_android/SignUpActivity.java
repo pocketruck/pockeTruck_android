@@ -14,8 +14,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import pocketruck.penny.pocketruck_android.R;
-
 import pocketruck.penny.pocketruck_android.api.RetrofitAPI;
 import pocketruck.penny.pocketruck_android.model.SignUp;
 
