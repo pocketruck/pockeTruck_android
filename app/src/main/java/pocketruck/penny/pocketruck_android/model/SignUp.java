@@ -1,8 +1,8 @@
 package pocketruck.penny.pocketruck_android.model;
 
 public class SignUp {
-    private String username;
-    private String password;
+    String username;
+    String password;
 
     public SignUp(String username, String password) {
         this.username = username;
