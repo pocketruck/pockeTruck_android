@@ -1,6 +1,5 @@
 package pocketruck.penny.pocketruck_android;
 
-import android.app.Application;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -30,7 +29,7 @@ public class Controller {
     }
 
     public void retrofitService(){
-        if (retrofitAPI == null){//이거 안하면 널포인트 익셉션일어남 왜그러는지 나도 모르겠어.....이거 해도 널포인트 익셉션이 일어나네,,,,죽고싶다,,,
+        if (retrofitAPI == null){
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             logging.setLevel(HttpLoggingInterceptor.Level.BODY);
             OkHttpClient.Builder client = new OkHttpClient.Builder();
@@ -41,7 +40,7 @@ public class Controller {
                     .addConverterFactory(GsonConverterFactory.create())//파싱등록
                     .build();
 
-            RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
+            retrofitAPI = retrofit.create(RetrofitAPI.class);
         }
 
     }

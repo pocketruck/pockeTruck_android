@@ -30,7 +30,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    private RetrofitAPI api ; //레트로핏
+    public static RetrofitAPI api ; //레트로핏
 
 
 
@@ -38,7 +38,7 @@ public class SignUpActivity extends AppCompatActivity {
     private TextView warnEmail, warnPw, warnPwCheck, gotoLogin;
     private Button signUpButton;
     private CheckBox agree;
-    private String getEmail,getPw, getPwCheck;
+    public String getEmail,getPw, getPwCheck;
 
 
     private boolean[] emailOk = new boolean[1];
@@ -188,12 +188,9 @@ public class SignUpActivity extends AppCompatActivity {
             signUpButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String username = email.getText().toString();
-                    String password = pw.getText().toString();
+                    Log.d("회원가입","username : "+getEmail+" password : "+getPw);
 
-                    Log.d("회원가입","username : "+username+" password : "+password);
-
-                    signUp(username,password);
+                    signUp(getEmail,getPw);
                 }
             });
         } else {
@@ -205,22 +202,15 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void signUp(String username , String password){
 
-        api = new RetrofitAPI() {
-            @Override
-            public Call<SignUp> postSignUp(SignUp signUp) {
-                return null;
-            }
-        };
-
         //회원가입
-        SignUp signUp = new SignUp();
+        SignUp signUp = new SignUp(username, password);
 
         signUp.setUsername(username);
         signUp.setPassword(password);
 
         Call<SignUp> signUpCall = api.postSignUp(signUp);
 
-        signUpCall.enqueue(new Callback<SignUp>() {
+         signUpCall.enqueue(new Callback<SignUp>() {
             @Override
             public void onResponse(Call<SignUp> call, Response<SignUp> response) {
                 if(response.isSuccessful()){
