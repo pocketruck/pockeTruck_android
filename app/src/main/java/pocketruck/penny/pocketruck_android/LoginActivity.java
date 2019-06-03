@@ -9,22 +9,35 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import pocketruck.penny.pocketruck_android.api.RetrofitAPI;
+import pocketruck.penny.pocketruck_android.model.Login;
+import pocketruck.penny.pocketruck_android.model.User;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static android.widget.Toast.LENGTH_SHORT;
+
 public class LoginActivity extends AppCompatActivity {
+    public static RetrofitAPI api ; //레트로핏
+
     private EditText pw, email;
     private TextView warnEmail,warnPw,gotoSignUp;
     private boolean[] emailOk = new boolean[1];
     private boolean[] pwOk = new boolean[1];
     private Button login;
-    private String checkEmail,checkPw;
+    public String checkEmail,checkPw;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        apiBuilder();//레트로핏을 사용하기 위함
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -127,13 +140,47 @@ public class LoginActivity extends AppCompatActivity {
             login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(intent);
+                    Login(checkEmail,checkPw);
                 }
             });
         } else {
             login.setOnClickListener(null);
         }
+    }
+
+    public void Login(String username, String password){
+        Login login = new Login(username, password);
+
+        Call<User> userCall = api.login(login);
+        userCall.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.isSuccessful()){
+                    Toast.makeText(getApplicationContext(),"로그인 성공", Toast.LENGTH_SHORT).show();
+                    loginSuccess();
+                } else{
+                    Toast.makeText(getApplicationContext(),"로그인 실패", LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                t.printStackTrace();
+                Toast.makeText(getApplicationContext(),"로그인 실패", LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+    public void apiBuilder(){
+        Controller controller = Controller.getInstance();
+        controller.retrofitService();
+        api = Controller.getInstance().getRetrofitAPI();
+    }
+
+    public void loginSuccess(){
+        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(intent);
     }
 
 
