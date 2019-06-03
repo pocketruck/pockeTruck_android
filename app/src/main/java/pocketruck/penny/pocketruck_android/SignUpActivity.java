@@ -215,7 +215,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onResponse(Call<SignUp> call, Response<SignUp> response) {
                 if(response.isSuccessful()){
                     Toast.makeText(getApplicationContext(),"회원가입 성공", Toast.LENGTH_SHORT).show();
-                    Login();
+                    signUpSuccess();
                 } else{
                     Toast.makeText(getApplicationContext(),"회원가입 실패", LENGTH_SHORT).show();
                 }
@@ -237,7 +237,7 @@ public class SignUpActivity extends AppCompatActivity {
         api = Controller.getInstance().getRetrofitAPI();
     }
 
-    public void Login(){
+    public void signUpSuccess(){
         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
     }
